@@ -7,11 +7,11 @@ interface IValueItem extends BalanceDataType {}
 export function BalanceItem({ src, balance }: IValueItem): React.JSX.Element {
   return (
     <Balance>
-      <div>
+      <div className={"image-container"}>
         <img src={src} alt={"country flag"} />
       </div>
 
-      <p>${balance}</p>
+      <p className={"balance"}>${balance}</p>
     </Balance>
   );
 }

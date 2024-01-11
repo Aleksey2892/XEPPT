@@ -1,9 +1,12 @@
 import React from "react";
-import { Menu, Logo, Notifications } from "../../assets/svg";
+import { NavLink } from "react-router-dom";
+import { Menu, Logo, Notifications, ArrowDown } from "../../assets/svg";
 import {
   HeaderStyled,
-  NotificationButton,
+  TabList,
+  CircleButton,
   RightSideSettings,
+  AccountButton,
 } from "./Header.styled";
 
 interface IHeader {}
@@ -11,17 +14,58 @@ interface IHeader {}
 export function Header({}: IHeader): React.JSX.Element {
   return (
     <HeaderStyled>
-      <button type="button">
+      <button className={"button-menu"} type="button">
         <Menu />
       </button>
 
       <Logo />
 
+      <TabList>
+        <li className={"list-item"}>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : "static"
+            }
+            to={"/"}
+          >
+            Home
+          </NavLink>
+        </li>
+
+        <li className={"list-item"}>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : "static"
+            }
+            to={"card"}
+          >
+            XEPPT Card
+          </NavLink>
+        </li>
+
+        <li className={"list-item"}>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : "static"
+            }
+            to={"statements"}
+          >
+            Statements
+          </NavLink>
+        </li>
+      </TabList>
+
       <RightSideSettings>
-        <p>{"FR"}</p>
-        <NotificationButton>
+        <span className={"letters"}>{"FR"}</span>
+        <CircleButton className={"notifications"}>
           <Notifications />
-        </NotificationButton>
+        </CircleButton>
+
+        <CircleButton className={"circle-name"}>{"PM"}</CircleButton>
+
+        <AccountButton>
+          <ArrowDown />
+        </AccountButton>
       </RightSideSettings>
     </HeaderStyled>
   );

@@ -4,3 +4,4 @@ export { ReactComponent as Notifications } from "./notifications.svg";
 export { ReactComponent as Visa } from "./visa.svg";
 export { ReactComponent as CreditCard } from "./credit_card.svg";
 export { ReactComponent as Wallet } from "./wallet.svg";
+export { ReactComponent as ArrowDown } from "./arrow_down.svg";

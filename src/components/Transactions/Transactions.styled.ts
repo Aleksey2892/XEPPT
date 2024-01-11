@@ -4,13 +4,18 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 const ButtonsBox = styled.div`
   margin-bottom: 17px;
   width: 100%;
 
-  button {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .action {
     min-width: 66px;
     min-height: 36px;
     padding: 0 24px;
@@ -30,6 +35,7 @@ const ButtonsBox = styled.div`
 
 const TransactionList = styled.ul`
   margin-bottom: 16px;
+  width: 100%;
 
   li {
     height: 56px;
@@ -51,15 +57,23 @@ const InfoBlock = styled.div`
   display: flex;
   color: #000000;
 
-  p:first-child {
+  .serviceName {
     margin-bottom: 5px;
     font-size: 16px;
     font-weight: 600;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
   }
 
-  p:nth-child(2) {
+  .details {
     font-size: 12px;
     font-weight: 400;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
   }
 `;
 const IconContainer = styled.div<{ $payment?: boolean }>`
@@ -72,12 +86,22 @@ const IconContainer = styled.div<{ $payment?: boolean }>`
   border-radius: 50%;
   background-color: ${({ $payment }) =>
     $payment ? "var(--primary-secondary-color)" : "var(--primary-first-color)"};
+
+  @media (min-width: 768px) {
+    margin-right: 24px;
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const Sum = styled.div<{ $payment?: boolean }>`
   font-size: 16px;
   font-weight: 700;
   color: ${({ $payment }) => ($payment ? "#4e4c47" : "#0F9D58")};
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const ShowMoreBtn = styled.button`
@@ -89,6 +113,18 @@ const ShowMoreBtn = styled.button`
   color: var(--primary-first-color);
   text-align: center;
   background-color: var(--secondary-color);
+
+  &.mobile {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &.tablet {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
 `;
 
 export {

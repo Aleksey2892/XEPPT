@@ -7,8 +7,12 @@ const Container = styled.div`
 
 const Title = styled.h2`
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
+
+  @media screen and (max-width: 767px) {
+    font-size: 16px;
+  }
 `;
 
 export const withTitle = (WrappedComponent: any) => {

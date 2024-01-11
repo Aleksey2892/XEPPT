@@ -14,11 +14,14 @@ const Card = styled(CardTemplate)`
   align-items: center;
   background-image: url(${cardBg});
   background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 24px;
+  }
 `;
 
 const EmptyCard = styled(CardTemplate)`
-  position: absolute;
-  right: -220px;
+  left: 272px;
   width: 214px;
   height: 122px;
   padding: 27px 21px;
@@ -28,6 +31,10 @@ const EmptyCard = styled(CardTemplate)`
     margin-top: 22px;
     font-size: 20px;
     font-weight: 700;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
   }
 `;
 

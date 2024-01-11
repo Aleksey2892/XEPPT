@@ -39,12 +39,20 @@ export function Transactions(): React.JSX.Element {
   return (
     <Container>
       <ButtonsBox>
-        <button type="button">All</button>
-        <button type="button">XEPPT Card</button>
+        <div>
+          <button type="button" className={"action"}>
+            All
+          </button>
+          <button type="button" className={"action"}>
+            XEPPT Card
+          </button>
+        </div>
+
+        <ShowMoreBtn className={"tablet"}>Show more</ShowMoreBtn>
       </ButtonsBox>
 
       <TransactionList>
-        {transactionDataExampleArr.map((data) => {
+        {transactionDataExampleArr.map(data => {
           const { id, serviceName, date, type, sum } = data;
           const isPayment = type === "Payment";
 
@@ -56,8 +64,8 @@ export function Transactions(): React.JSX.Element {
                 </IconContainer>
 
                 <div>
-                  <p>{serviceName}</p>
-                  <p>
+                  <p className={"serviceName"}>{serviceName}</p>
+                  <p className={"details"}>
                     {date}, {type}
                   </p>
                 </div>
@@ -69,7 +77,7 @@ export function Transactions(): React.JSX.Element {
         })}
       </TransactionList>
 
-      <ShowMoreBtn>Show more</ShowMoreBtn>
+      <ShowMoreBtn className={"mobile"}>Show more</ShowMoreBtn>
     </Container>
   );
 }

@@ -3,6 +3,7 @@ import {
   AccountCardList,
   ButtonsBox,
   AddTextButton,
+  AddMoneyBtn,
 } from "./BankAccount.styled";
 import { CirclePlusButton } from "../templates";
 
@@ -27,8 +28,12 @@ export function BankAccount(props: { style?: React.CSSProperties }) {
       </AccountCardList>
 
       <ButtonsBox>
-        <CirclePlusButton />
-        <AddTextButton>Link a card or bank</AddTextButton>
+        <div className={"add-new"}>
+          <CirclePlusButton />
+          <AddTextButton>Link a card or bank</AddTextButton>
+        </div>
+
+        <AddMoneyBtn>Add money</AddMoneyBtn>
       </ButtonsBox>
     </div>
   );

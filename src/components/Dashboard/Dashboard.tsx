@@ -4,7 +4,6 @@ import { AccountBalance } from "../AccountBalance";
 import { PrepaidCards } from "../PrepaidCards";
 import { Transactions } from "../Transactions";
 import { BankAccount } from "../BankAccount";
-import { AddMoneyBtn } from "./Dashboard.styled";
 
 const AccountBalanceWithTitle = withTitle(AccountBalance);
 const PrepaidCardsWithTitle = withTitle(PrepaidCards);
@@ -26,8 +25,6 @@ export function Dashboard({}: IMain): React.JSX.Element {
         title="Bank Account and Cards"
         style={{ marginBottom: 0 }}
       />
-
-      <AddMoneyBtn>Add money</AddMoneyBtn>
     </>
   );
 }
