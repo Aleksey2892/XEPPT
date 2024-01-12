@@ -4,7 +4,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 `;
 const ButtonsBox = styled.div`
   margin-bottom: 17px;
@@ -34,8 +34,11 @@ const ButtonsBox = styled.div`
 `;
 
 const TransactionList = styled.ul`
-  margin-bottom: 16px;
   width: 100%;
+
+  @media screen and (max-width: 1023px) {
+    margin-bottom: 16px;
+  }
 
   li {
     height: 56px;

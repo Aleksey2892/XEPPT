@@ -46,8 +46,7 @@ const AddTextButton = styled.button`
   }
 `;
 
-const AddMoneyBtn = styled.button`
-  margin-top: 72px;
+const AddMoneyBottom = styled.button`
   padding: 15px 0;
   width: 100%;
   height: 50px;
@@ -57,10 +56,22 @@ const AddMoneyBtn = styled.button`
   font-weight: 500;
   background-color: var(--secondary-color);
 
+  &.mobile {
+    margin-top: 72px;
+  }
+
   @media screen and (min-width: 768px) {
-    margin-top: 11px;
-    width: 320px;
+    &.mobile {
+      margin-top: 11px;
+      width: 320px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    &.mobile {
+      display: none;
+    }
   }
 `;
 
-export { AccountCardList, ButtonsBox, AddTextButton, AddMoneyBtn };
+export { AccountCardList, ButtonsBox, AddTextButton, AddMoneyBottom };

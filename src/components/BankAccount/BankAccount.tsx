@@ -3,7 +3,7 @@ import {
   AccountCardList,
   ButtonsBox,
   AddTextButton,
-  AddMoneyBtn,
+  AddMoneyBottom,
 } from "./BankAccount.styled";
 import { CirclePlusButton } from "../templates";
 
@@ -18,9 +18,9 @@ const cardsDataExampleArr = [
     value: "TD Bank Debit ( ****0024)",
   },
 ];
-export function BankAccount(props: { style?: React.CSSProperties }) {
+export function BankAccount({ style }: { style?: React.CSSProperties }) {
   return (
-    <div style={props.style}>
+    <div style={style}>
       <AccountCardList>
         {cardsDataExampleArr.map(({ id, value }) => (
           <li key={id}>{value}</li>
@@ -33,7 +33,7 @@ export function BankAccount(props: { style?: React.CSSProperties }) {
           <AddTextButton>Link a card or bank</AddTextButton>
         </div>
 
-        <AddMoneyBtn>Add money</AddMoneyBtn>
+        <AddMoneyBottom className={"mobile"}>Add money</AddMoneyBottom>
       </ButtonsBox>
     </div>
   );

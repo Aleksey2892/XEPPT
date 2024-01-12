@@ -3,6 +3,21 @@ import styled from "styled-components";
 
 const Container = styled.div`
   margin-bottom: 31px;
+
+  &:nth-child(3),
+  &:last-child {
+    margin-bottom: 0;
+
+    @media screen and (min-width: 1024px) {
+      padding-top: 32px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &:nth-child(3) {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -15,12 +30,14 @@ const Title = styled.h2`
   }
 `;
 
-export const withTitle = (WrappedComponent: any) => {
-  return (props: any) => (
-    <Container>
-      <Title>{props.title}</Title>
+type withTitleInnerType = { title: string };
 
-      <WrappedComponent {...props} />
+export const withTitle = (WrappedComponent: any) => {
+  return ({ title }: withTitleInnerType) => (
+    <Container>
+      <Title>{title}</Title>
+
+      <WrappedComponent />
     </Container>
   );
 };

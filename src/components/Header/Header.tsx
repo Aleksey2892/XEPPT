@@ -64,6 +64,7 @@ export function Header({}: IHeader): React.JSX.Element {
         <CircleButton className={"circle-name"}>{"PM"}</CircleButton>
 
         <AccountButton>
+          <span className={"user-name"}>{"Peter Morgan"}</span>
           <ArrowDown />
         </AccountButton>
       </RightSideSettings>

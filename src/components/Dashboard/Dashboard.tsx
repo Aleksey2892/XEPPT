@@ -4,6 +4,12 @@ import { AccountBalance } from "../AccountBalance";
 import { PrepaidCards } from "../PrepaidCards";
 import { Transactions } from "../Transactions";
 import { BankAccount } from "../BankAccount";
+import { Xeppt } from "../../assets/svg";
+import {
+  AddMoneyTop,
+  LeftSideContainer,
+  RightSideContainer,
+} from "./Dashboard.styled";
 
 const AccountBalanceWithTitle = withTitle(AccountBalance);
 const PrepaidCardsWithTitle = withTitle(PrepaidCards);
@@ -15,16 +21,21 @@ interface IMain {}
 export function Dashboard({}: IMain): React.JSX.Element {
   return (
     <>
-      <AccountBalanceWithTitle title="XEPPT Account Balance" />
+      <LeftSideContainer>
+        <AccountBalanceWithTitle title="XEPPT Account Balance" />
 
-      <PrepaidCardsWithTitle title="XEPPT Prepaid Card" />
+        <PrepaidCardsWithTitle title="XEPPT Prepaid Card" />
 
-      <TransactionsWithTitle title="Transactions" />
+        <TransactionsWithTitle title="Transactions" />
+      </LeftSideContainer>
 
-      <BankAccountWithTitle
-        title="Bank Account and Cards"
-        style={{ marginBottom: 0 }}
-      />
+      <RightSideContainer>
+        <AddMoneyTop className={"laptop"}>Add money</AddMoneyTop>
+        <BankAccountWithTitle title="Bank Account and Cards" />
+        <div className={"svg-container"}>
+          <Xeppt />
+        </div>
+      </RightSideContainer>
     </>
   );
 }

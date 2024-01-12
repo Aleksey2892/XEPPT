@@ -80,6 +80,18 @@ const AccountButton = styled.button`
   @media screen and (max-width: 767px) {
     display: none;
   }
+
+  .user-name {
+    padding-right: 18px;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--primary-first-color);
+    text-transform: uppercase;
+
+    @media screen and (max-width: 1023px) {
+      display: none;
+    }
+  }
 `;
 
 const RightSideSettings = styled.div`
@@ -89,7 +101,13 @@ const RightSideSettings = styled.div`
 
   .letters {
     margin-right: 10px;
+    font-size: 14px;
+    font-weight: 400;
     color: var(--primary-first-color);
+
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+    }
   }
 `;
 

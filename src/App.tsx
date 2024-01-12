@@ -1,21 +1,21 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
-import { MainContainer } from "./components/MainContainer";
 import { Home } from "./pages/Home";
+import { AnotherPage } from "./pages/AnotherPage";
 
 function App(): React.JSX.Element {
   return (
-    <div>
-      <Header>Hello</Header>
+    <>
+      <Header />
 
-      <MainContainer>
-        <Routes>
-          <Route path={"/"} element={<Home />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </MainContainer>
-    </div>
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/card"} element={<AnotherPage />} />
+        <Route path={"/statements"} element={<AnotherPage />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </>
   );
 }
 
