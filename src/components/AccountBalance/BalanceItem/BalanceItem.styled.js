@@ -7,7 +7,7 @@ const Balance = styled.li`
   font-size: 18px;
   font-weight: 600;
   border: 1px solid var(--primary-first-color);
-  background-color: var(--primary-third-color);
+  background-color: var(--secondary-second-color);
 
   .image-container {
     margin-bottom: 15px;

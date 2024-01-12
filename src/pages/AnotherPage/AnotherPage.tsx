@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
   height: 100vw;
@@ -25,7 +26,7 @@ const Container = styled.div`
 `;
 
 export function AnotherPage(): React.JSX.Element {
-  const url = document.location.pathname.slice(1);
+  const url = useLocation().pathname.slice(1);
 
   return (
     <Container>

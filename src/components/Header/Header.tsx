@@ -1,10 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, Logo, Notifications, ArrowDown } from "../../assets/svg";
 import {
   HeaderStyled,
   TabList,
-  CircleButton,
+  CircleButtonStyled,
   RightSideSettings,
   AccountButton,
 } from "./Header.styled";
@@ -18,7 +18,9 @@ export function Header({}: IHeader): React.JSX.Element {
         <Menu />
       </button>
 
-      <Logo />
+      <Link className={"logo-container"} to={"/home"}>
+        <Logo />
+      </Link>
 
       <TabList>
         <li className={"list-item"}>
@@ -26,7 +28,7 @@ export function Header({}: IHeader): React.JSX.Element {
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "active" : "static"
             }
-            to={"/"}
+            to={"/home"}
           >
             Home
           </NavLink>
@@ -57,11 +59,13 @@ export function Header({}: IHeader): React.JSX.Element {
 
       <RightSideSettings>
         <span className={"letters"}>{"FR"}</span>
-        <CircleButton className={"notifications"}>
+        <CircleButtonStyled className={"notifications"}>
           <Notifications />
-        </CircleButton>
+        </CircleButtonStyled>
 
-        <CircleButton className={"circle-name"}>{"PM"}</CircleButton>
+        <CircleButtonStyled className={"circle-name"}>
+          {"PM"}
+        </CircleButtonStyled>
 
         <AccountButton>
           <span className={"user-name"}>{"Peter Morgan"}</span>

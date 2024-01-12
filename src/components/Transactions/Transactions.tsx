@@ -1,83 +1,39 @@
 import React from "react";
-import { CreditCard, Wallet } from "../../assets/svg";
-import {
-  ButtonsBox,
-  TransactionList,
-  InfoBlock,
-  IconContainer,
-  Sum,
-  ShowMoreBtn,
-  Container,
-} from "./Transactions.styled";
-
-// Example array for incoming data
-const transactionDataExampleArr = [
-  {
-    id: 1,
-    serviceName: "Cineplex Inc.",
-    date: "Sept 24",
-    type: "Payment",
-    sum: "-$42.50",
-  },
-  {
-    id: 2,
-    serviceName: "RBC Royal Bank",
-    date: "Aug 1",
-    type: "Transfer from bank",
-    sum: "+$500.00",
-  },
-  {
-    id: 3,
-    serviceName: "Cineplex Inc.",
-    date: "Sept 24",
-    type: "Payment",
-    sum: "-$42.50",
-  },
-];
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { ButtonsBox, Container } from "./Transactions.styled";
+import { ShowMoreBtn } from "./TransactionList/TransactionList.styled";
 
 export function Transactions(): React.JSX.Element {
+  const loc = useLocation();
+  const tabAll = loc.pathname === "/home";
+
   return (
     <Container>
       <ButtonsBox>
-        <div>
-          <button type="button" className={"action"}>
+        <div className={"container"}>
+          <NavLink
+            end
+            to={"/home"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : "static"
+            }
+          >
             All
-          </button>
-          <button type="button" className={"action"}>
+          </NavLink>
+          <NavLink
+            to={"/home/card"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : "static"
+            }
+          >
             XEPPT Card
-          </button>
+          </NavLink>
         </div>
 
-        <ShowMoreBtn className={"tablet"}>Show more</ShowMoreBtn>
+        {tabAll && <ShowMoreBtn className={"tablet"}>Show more</ShowMoreBtn>}
       </ButtonsBox>
 
-      <TransactionList>
-        {transactionDataExampleArr.map(data => {
-          const { id, serviceName, date, type, sum } = data;
-          const isPayment = type === "Payment";
-
-          return (
-            <li key={id}>
-              <InfoBlock>
-                <IconContainer $payment={isPayment}>
-                  {isPayment ? <CreditCard /> : <Wallet />}
-                </IconContainer>
-
-                <div>
-                  <p className={"serviceName"}>{serviceName}</p>
-                  <p className={"details"}>
-                    {date}, {type}
-                  </p>
-                </div>
-              </InfoBlock>
-
-              <Sum $payment={isPayment}>{sum}</Sum>
-            </li>
-          );
-        })}
-      </TransactionList>
-
-      <ShowMoreBtn className={"mobile"}>Show more</ShowMoreBtn>
+      <Outlet />
     </Container>
   );
 }

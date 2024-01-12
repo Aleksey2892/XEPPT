@@ -4,9 +4,10 @@ import "reset-css";
 export const GlobalStyle = createGlobalStyle`
   :root {
     --primary-first-color: #F5CC82;
-    --primary-secondary-color: #FDF1DC;
-    --primary-third-color: #FFF8EC;
-    --secondary-color: #353535
+    --primary-second-color: #db9e2f;
+    --secondary-first-color: #FDF1DC;
+    --secondary-second-color: #FFF8EC;
+    --secondary-dark: #353535
   }
 
   body {
@@ -32,11 +33,18 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const AddPlusButton = styled.button`
+export const CircleButton = styled.button`
   width: 40px;
   height: 40px;
   font-size: 30px;
+  line-height: 0;
   border-radius: 50%;
   color: var(--primary-first-color);
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-dark);
+  transition: all 0.25s;
+
+  &:hover {
+    background-color: var(--secondary-first-color);
+    transition: all 0.25s;
+  }
 `;

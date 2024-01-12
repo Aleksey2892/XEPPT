@@ -7,10 +7,6 @@ const Container = styled.div`
   &:nth-child(3),
   &:last-child {
     margin-bottom: 0;
-
-    @media screen and (min-width: 1024px) {
-      padding-top: 32px;
-    }
   }
 
   @media screen and (min-width: 768px) {

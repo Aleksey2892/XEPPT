@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const AccountCardList = styled.ul`
+  @media screen and (min-width: 1920px) {
+    width: 360px;
+  }
+
   li {
     padding: 8px;
     margin-bottom: 16px;
@@ -34,6 +38,7 @@ const AddTextButton = styled.button`
   font-size: 20px;
   font-weight: 700;
   color: #282828;
+  transition: color 1s;
 
   &:after {
     content: "";
@@ -43,6 +48,17 @@ const AddTextButton = styled.button`
     bottom: 2px;
     left: 0;
     background: #000000;
+    transition: background 1s;
+  }
+
+  &:hover {
+    color: var(--primary-first-color);
+    transition: all 0.25s;
+
+    &:after {
+      background: var(--primary-first-color);
+      transition: all 1s;
+    }
   }
 `;
 
@@ -54,7 +70,14 @@ const AddMoneyBottom = styled.button`
   color: var(--primary-first-color);
   font-size: 16px;
   font-weight: 500;
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-dark);
+  transition: all 0.25s;
+
+  &:hover {
+    color: var(--secondary-dark);
+    background-color: var(--secondary-first-color);
+    transition: all 0.25s;
+  }
 
   &.mobile {
     margin-top: 72px;

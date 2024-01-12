@@ -10,9 +10,16 @@ const HomeContainer = styled.main`
   }
 
   @media screen and (min-width: 1024px) {
+    height: calc(100vh - 96px);
     padding: 0 0 0 35px;
     display: flex;
     justify-content: space-between;
+    overflow: auto;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding: 0 0 0 259px;
+    height: calc(100vh - 136px);
   }
 `;
 

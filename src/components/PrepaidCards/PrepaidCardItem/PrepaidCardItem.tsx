@@ -1,6 +1,7 @@
 import React from "react";
 import { cardDataType } from "../PrepaidCards";
-import { Logo, Visa } from "../../../assets/svg";
+import { Logo, Plus, Visa } from "../../../assets/svg";
+import { CircleButton } from "../../../index.styled";
 import {
   Card,
   EmptyCard,
@@ -11,7 +12,6 @@ import {
   LeftSide,
   RightSide,
 } from "./PrepaidCardItem.styled";
-import { AddPlusButton } from "../../../index.styled";
 
 interface CommonProps extends cardDataType {}
 interface EmptyCard {
@@ -48,7 +48,9 @@ export const PrepaidCardItem = (props: PrepaidCardItem) => {
   } else {
     return (
       <EmptyCard>
-        <AddPlusButton>+</AddPlusButton>
+        <CircleButton>
+          <Plus />
+        </CircleButton>
         <p>Order a new card</p>
       </EmptyCard>
     );

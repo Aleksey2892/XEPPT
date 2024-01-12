@@ -7,7 +7,13 @@ const LeftSideContainer = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 32px 0 54px 0;
+    flex-shrink: 1;
+    padding: 32px 18px 54px 0;
+    width: 670px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding: 72px 24px 32px 0;
   }
 `;
 
@@ -19,6 +25,7 @@ const RightSideContainer = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
+    flex-shrink: 0;
     width: 316px;
     padding: 32px 16px;
     display: flex;
@@ -26,11 +33,12 @@ const RightSideContainer = styled.div`
     align-items: center;
     background-color: #fff;
     position: relative;
+    overflow: hidden;
 
     .svg-container {
       position: absolute;
-      bottom: -70px;
-      right: -80px;
+      bottom: -65px;
+      right: -75px;
       width: 300px;
       height: 300px;
 
@@ -38,6 +46,19 @@ const RightSideContainer = styled.div`
         width: 100%;
         height: 100%;
       }
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    align-items: flex-start;
+    width: 743px;
+    padding: 72px 32px 16px;
+
+    .svg-container {
+      width: 536px;
+      height: 536px;
+      right: -145px;
+      bottom: -45px;
     }
   }
 `;
@@ -55,6 +76,12 @@ const AddMoneyTop = styled(AddMoneyBottom)`
 
     &.laptop {
       margin-bottom: 32px;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    &.laptop {
+      width: 360px;
     }
   }
 `;
