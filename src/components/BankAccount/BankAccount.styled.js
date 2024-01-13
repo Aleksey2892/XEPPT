@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const AccountCardList = styled.ul`
+  animation: slideFromRight 1s ease-out;
+
   @media screen and (min-width: 1920px) {
     width: 360px;
   }

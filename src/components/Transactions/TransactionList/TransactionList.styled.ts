@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const TransactionListStyled = styled.ul`
   width: 100%;
+  animation: slideFromLeft 1s ease-out;
 
   @media screen and (max-width: 1023px) {
     margin-bottom: 16px;
@@ -107,6 +108,9 @@ const EmptyList = styled.p`
   padding-top: 20px;
   width: 100%;
   font-size: 18px;
+  color: var(--primary-second-color);
+  font-weight: 700;
+  animation: slideFromLeft 1s ease-out;
 
   @media screen and (min-width: 1024px) {
     text-align: center;

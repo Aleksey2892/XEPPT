@@ -1,6 +1,7 @@
 import React from "react";
 import { BalanceItem } from "./BalanceItem";
 import canadaIcon from "../../assets/images/canada.png";
+import { BalanceList } from "./AccountBalance.styled";
 
 // Example array for incoming data
 const balanceDataExampleArr: BalanceDataType[] = [
@@ -17,10 +18,10 @@ export type BalanceDataType = {
 
 export function AccountBalance(): React.JSX.Element {
   return (
-    <ul>
-      {balanceDataExampleArr.map((data) => (
+    <BalanceList>
+      {balanceDataExampleArr.map(data => (
         <BalanceItem {...data} key={data.id} />
       ))}
-    </ul>
+    </BalanceList>
   );
 }

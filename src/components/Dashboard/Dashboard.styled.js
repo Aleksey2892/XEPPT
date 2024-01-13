@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { AddMoneyBottom } from "../BankAccount/BankAccount.styled";
 
 const LeftSideContainer = styled.div`
+  animation: slideFromLeft 1s ease-out;
+
   @media screen and (max-width: 1023px) {
     margin-bottom: 31px;
   }
@@ -18,6 +20,12 @@ const LeftSideContainer = styled.div`
 `;
 
 const RightSideContainer = styled.div`
+  animation: slideFromRight 1s ease-out;
+
+  .svg-container {
+    animation: slideFromRight 2.5s ease-out;
+  }
+
   @media screen and (max-width: 1023px) {
     .svg-container {
       display: none;
@@ -41,6 +49,28 @@ const RightSideContainer = styled.div`
       right: -75px;
       width: 300px;
       height: 300px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 100%;
+        top: 0;
+        left: 10%;
+        background-color: #f5cc82;
+        animation: lineX 12s ease-in-out infinite;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: #f5cc82;
+        animation: lineY 14s ease-in-out infinite;
+      }
 
       svg {
         width: 100%;
