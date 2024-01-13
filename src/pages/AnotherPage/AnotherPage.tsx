@@ -25,7 +25,7 @@ const Container = styled.div`
   }
 `;
 
-export function AnotherPage(): React.JSX.Element {
+export function AnotherPage() {
   const url = useLocation().pathname.slice(1);
 
   return (

@@ -16,22 +16,20 @@ const PrepaidCardsWithTitle = withTitle(PrepaidCards);
 const TransactionsWithTitle = withTitle(Transactions);
 const BankAccountWithTitle = withTitle(BankAccount);
 
-interface IMain {}
-
-export function Dashboard({}: IMain): React.JSX.Element {
+export function Dashboard() {
   return (
     <>
       <LeftSideContainer>
-        <AccountBalanceWithTitle title="XEPPT Account Balance" />
+        <AccountBalanceWithTitle title={"XEPPT Account Balance"} />
 
-        <PrepaidCardsWithTitle title="XEPPT Prepaid Card" />
+        <PrepaidCardsWithTitle title={"XEPPT Prepaid Card"} />
 
-        <TransactionsWithTitle title="Transactions" />
+        <TransactionsWithTitle title={"Transactions"} />
       </LeftSideContainer>
 
       <RightSideContainer>
         <AddMoneyTop className={"laptop"}>Add money</AddMoneyTop>
-        <BankAccountWithTitle title="Bank Account and Cards" />
+        <BankAccountWithTitle title={"Bank Account and Cards"} />
         <div className={"svg-container"}>
           <Xeppt />
         </div>

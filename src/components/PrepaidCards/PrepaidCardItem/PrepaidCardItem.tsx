@@ -14,6 +14,7 @@ import {
 } from "./PrepaidCardItem.styled";
 
 interface CommonProps extends cardDataType {}
+
 interface EmptyCard {
   empty: boolean;
 }

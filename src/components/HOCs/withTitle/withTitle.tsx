@@ -14,6 +14,10 @@ const Container = styled.div`
       margin-bottom: 0;
     }
   }
+
+  @media screen and (min-width: 1920px) {
+    margin-bottom: 64px;
+  }
 `;
 
 const Title = styled.h2`
@@ -26,10 +30,12 @@ const Title = styled.h2`
   }
 `;
 
-type withTitleInnerType = { title: string };
+type BaseProps = {
+  title: string;
+};
 
-export const withTitle = (WrappedComponent: any) => {
-  return ({ title }: withTitleInnerType) => (
+export const withTitle = (WrappedComponent: React.ComponentType) => {
+  return ({ title }: BaseProps) => (
     <Container>
       <Title>{title}</Title>
 

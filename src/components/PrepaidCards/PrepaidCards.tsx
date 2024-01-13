@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { withLoader } from "../HOCs";
+import { CardList } from "./PrepaidCards.styled";
 import { PrepaidCardItem } from "./PrepaidCardItem/PrepaidCardItem";
-import { CardsList } from "./PrepaidCards.styled";
+
+const CardListWithLoader = withLoader(CardList);
 
 // Example array for incoming data
 const cardDataExampleArr: cardDataType[] = [
@@ -10,12 +13,6 @@ const cardDataExampleArr: cardDataType[] = [
     balance: "0.00",
     cardNumber: "4588 •••• •••• 0092",
   },
-  // {
-  //   id: 2,
-  //   status: "Active",
-  //   balance: 230.6,
-  //   cardNumber: "4955 •••• •••• 1200",
-  // },
 ];
 
 export type cardDataType = {
@@ -25,14 +22,24 @@ export type cardDataType = {
   cardNumber: string;
 };
 
-export function PrepaidCards(): React.JSX.Element {
-  return (
-    <CardsList>
-      {cardDataExampleArr.map((data) => (
-        <PrepaidCardItem {...data} key={data.id} />
-      ))}
+export function PrepaidCards() {
+  const [data, setData] = useState<cardDataType[]>([]);
 
-      <PrepaidCardItem empty />
-    </CardsList>
+  useEffect(() => {
+    setTimeout(() => setData(cardDataExampleArr), 1000);
+  }, []);
+
+  const isLoading = data.length < 1;
+
+  return (
+    <>
+      <CardListWithLoader loading={isLoading}>
+        {data.map(data => (
+          <PrepaidCardItem {...data} key={data.id} />
+        ))}
+
+        <PrepaidCardItem empty />
+      </CardListWithLoader>
+    </>
   );
 }

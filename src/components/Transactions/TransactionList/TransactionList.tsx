@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { withLoader } from "../../HOCs";
 import {
   TransactionListStyled,
   IconContainer,
@@ -10,8 +11,10 @@ import {
 import { CreditCard, Wallet } from "../../../assets/svg";
 import { useLocation } from "react-router-dom";
 
+const TransactionListWithLoader = withLoader(TransactionListStyled);
+
 // Example array for incoming data
-const transactionDataExampleArr = [
+const transactionDataExampleArr: TransactionDataType[] = [
   {
     id: 1,
     serviceName: "Cineplex Inc.",
@@ -35,38 +38,54 @@ const transactionDataExampleArr = [
   },
 ];
 
+type TransactionDataType = {
+  id: number;
+  serviceName: string;
+  date: string;
+  type: string;
+  sum: string;
+};
+
 export function TransactionList() {
+  const [data, setData] = useState<TransactionDataType[]>([]);
   const loc = useLocation();
   const tabAll = loc.pathname === "/home";
+
+  useEffect(() => {
+    setTimeout(() => setData(transactionDataExampleArr), 1000);
+  }, []);
+
+  const isLoading = data.length < 1;
 
   return (
     <>
       {tabAll && (
-        <TransactionListStyled>
-          {transactionDataExampleArr.map(data => {
-            const { id, serviceName, date, type, sum } = data;
-            const isPayment = type === "Payment";
+        <>
+          <TransactionListWithLoader loading={isLoading}>
+            {data.map(({ id, serviceName, date, type, sum }) => {
+              const isPayment = type === "Payment";
 
-            return (
-              <li key={id}>
-                <InfoBlock>
-                  <IconContainer $payment={isPayment}>
-                    {isPayment ? <CreditCard /> : <Wallet />}
-                  </IconContainer>
+              return (
+                <li key={id}>
+                  <InfoBlock>
+                    <IconContainer $payment={isPayment}>
+                      {isPayment ? <CreditCard /> : <Wallet />}
+                    </IconContainer>
 
-                  <div>
-                    <p className={"serviceName"}>{serviceName}</p>
-                    <p className={"details"}>
-                      {date}, {type}
-                    </p>
-                  </div>
-                </InfoBlock>
+                    <div>
+                      <p className={"serviceName"}>{serviceName}</p>
+                      <p className={"details"}>
+                        {date}, {type}
+                      </p>
+                    </div>
+                  </InfoBlock>
 
-                <Sum $payment={isPayment}>{sum}</Sum>
-              </li>
-            );
-          })}
-        </TransactionListStyled>
+                  <Sum $payment={isPayment}>{sum}</Sum>
+                </li>
+              );
+            })}
+          </TransactionListWithLoader>
+        </>
       )}
 
       {!tabAll && <EmptyList>There aren't any operations yet</EmptyList>}

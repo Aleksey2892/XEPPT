@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CardsList = styled.ul`
+const CardList = styled.ul`
   display: flex;
   animation: slideFromLeft 1s ease-out;
 
@@ -9,4 +9,4 @@ const CardsList = styled.ul`
   }
 `;
 
-export { CardsList };
+export { CardList };

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { withLoader } from "../HOCs";
 import { Plus } from "../../assets/svg";
 import { CircleButton } from "../../index.styled";
 import {
@@ -8,8 +9,10 @@ import {
   AddMoneyBottom,
 } from "./BankAccount.styled";
 
+const AccountCardListWithLoader = withLoader(AccountCardList);
+
 // Example array for incoming data
-const cardsDataExampleArr = [
+const cardsDataExampleArr: CardDataType[] = [
   {
     id: 1,
     value: "Signature RBC visa ( ****3234)",
@@ -20,14 +23,27 @@ const cardsDataExampleArr = [
   },
 ];
 
-export function BankAccount({ style }: { style?: React.CSSProperties }) {
+export type CardDataType = {
+  id: number;
+  value: string;
+};
+
+export function BankAccount() {
+  const [data, setData] = useState<CardDataType[]>([]);
+
+  useEffect(() => {
+    setTimeout(() => setData(cardsDataExampleArr), 1000);
+  }, []);
+
+  const isLoading = data.length < 1;
+
   return (
-    <div style={style}>
-      <AccountCardList>
-        {cardsDataExampleArr.map(({ id, value }) => (
+    <div>
+      <AccountCardListWithLoader loading={isLoading}>
+        {data.map(({ id, value }) => (
           <li key={id}>{value}</li>
         ))}
-      </AccountCardList>
+      </AccountCardListWithLoader>
 
       <ButtonsBox>
         <div className={"add-new"}>

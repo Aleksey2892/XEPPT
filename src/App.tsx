@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 import { TransactionList } from "./components/Transactions/TransactionList";
 import { AnotherPage } from "./pages/AnotherPage";
 
-function App(): React.JSX.Element {
+function App() {
   return (
     <>
       <Header />

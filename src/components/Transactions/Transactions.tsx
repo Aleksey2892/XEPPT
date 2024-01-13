@@ -3,7 +3,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { ButtonsBox, Container } from "./Transactions.styled";
 import { ShowMoreBtn } from "./TransactionList/TransactionList.styled";
 
-export function Transactions(): React.JSX.Element {
+export function Transactions() {
   const loc = useLocation();
   const tabAll = loc.pathname === "/home";
 
@@ -20,6 +20,7 @@ export function Transactions(): React.JSX.Element {
           >
             All
           </NavLink>
+
           <NavLink
             to={"/home/card"}
             className={({ isActive, isPending }) =>

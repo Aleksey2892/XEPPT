@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { withLoader } from "../HOCs";
 import { BalanceItem } from "./BalanceItem";
 import canadaIcon from "../../assets/images/canada.png";
 import { BalanceList } from "./AccountBalance.styled";
 
+const BalanceListWithLoader = withLoader(BalanceList);
+
 // Example array for incoming data
 const balanceDataExampleArr: BalanceDataType[] = [
   { id: 1, src: canadaIcon, balance: "191.0" },
-  // { id: 2, src: canadaIcon, balance: 421.3 },
-  // { id: 3, src: canadaIcon, balance: "1900.0" },
 ];
 
 export type BalanceDataType = {
@@ -16,12 +17,22 @@ export type BalanceDataType = {
   balance: number | string;
 };
 
-export function AccountBalance(): React.JSX.Element {
+export function AccountBalance() {
+  const [data, setData] = useState<BalanceDataType[]>([]);
+
+  useEffect(() => {
+    setTimeout(() => setData(balanceDataExampleArr), 1000);
+  }, []);
+
+  const isLoading = data.length < 1;
+
   return (
-    <BalanceList>
-      {balanceDataExampleArr.map(data => (
-        <BalanceItem {...data} key={data.id} />
-      ))}
-    </BalanceList>
+    <>
+      <BalanceListWithLoader loading={isLoading}>
+        {data.map(data => (
+          <BalanceItem {...data} key={data.id} />
+        ))}
+      </BalanceListWithLoader>
+    </>
   );
 }

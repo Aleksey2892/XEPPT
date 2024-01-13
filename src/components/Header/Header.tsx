@@ -9,9 +9,7 @@ import {
   AccountButton,
 } from "./Header.styled";
 
-interface IHeader {}
-
-export function Header({}: IHeader): React.JSX.Element {
+export function Header() {
   return (
     <HeaderStyled>
       <button className={"button-menu"} type="button">
