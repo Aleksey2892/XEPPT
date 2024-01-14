@@ -16,7 +16,7 @@ export function Header() {
         <Menu />
       </button>
 
-      <Link className={"logo-container"} to={"/home"}>
+      <Link className={"logo-container"} to={"/"}>
         <Logo />
       </Link>
 
@@ -26,7 +26,7 @@ export function Header() {
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "active" : "static"
             }
-            to={"/home"}
+            to={"/"}
           >
             Home
           </NavLink>

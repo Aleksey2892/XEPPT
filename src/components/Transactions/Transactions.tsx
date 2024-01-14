@@ -13,7 +13,7 @@ export function Transactions() {
         <div className={"container"}>
           <NavLink
             end
-            to={"/home"}
+            to={"/"}
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "active" : "static"
             }

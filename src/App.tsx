@@ -11,8 +11,8 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path={"/home"} element={<Home />}>
-          <Route path={"/home"} element={<TransactionList />} />
+        <Route path={"/"} element={<Home />}>
+          <Route path={"/"} element={<TransactionList />} />
           <Route path={"/home/card"} element={<TransactionList />} />
         </Route>
         <Route path={"/card"} element={<AnotherPage />} />

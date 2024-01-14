@@ -49,7 +49,7 @@ type TransactionDataType = {
 export function TransactionList() {
   const [data, setData] = useState<TransactionDataType[]>([]);
   const loc = useLocation();
-  const tabAll = loc.pathname === "/home";
+  const tabAll = loc.pathname === "/";
 
   useEffect(() => {
     setTimeout(() => setData(transactionDataExampleArr), 1000);
