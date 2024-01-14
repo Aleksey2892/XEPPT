@@ -24,7 +24,7 @@ For design details, refer to the [Figma file](https://www.figma.com/file/wPUEQFV
 
 ## Functionality
 
-This is just a template but header tabs are functional by React Router, they work with React Router, and open another pages. Tabs in Transaction section works either, and open content in inner block.
+This is just a template but header tabs are functional, they work with React Router, and open another pages. Tabs in Transaction section works either, and open content in inner block.
 
 <hr>
 
