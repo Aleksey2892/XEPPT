@@ -55,7 +55,7 @@ export function TransactionList() {
     setTimeout(() => setData(transactionDataExampleArr), 1000);
   }, []);
 
-  const isLoading = data.length < 1;
+  const isLoading = data.length < 1 || undefined;
 
   return (
     <>

@@ -29,7 +29,7 @@ export function PrepaidCards() {
     setTimeout(() => setData(cardDataExampleArr), 1000);
   }, []);
 
-  const isLoading = data.length < 1;
+  const isLoading = data.length < 1 || undefined;
 
   return (
     <>

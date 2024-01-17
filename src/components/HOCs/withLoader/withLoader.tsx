@@ -3,7 +3,7 @@ import { MoonLoader } from "react-spinners";
 import styled from "styled-components";
 
 type BaseProps = {
-  loading: boolean;
+  loading: true | undefined;
   children: React.ReactNode;
 };
 
@@ -19,12 +19,14 @@ export const withLoader = <T extends BaseProps>(
   return (props: T) => {
     const { loading, children } = props;
 
-    return loading ? (
-      <LoaderContainer>
-        <MoonLoader color={"var(--primary-second-color)"} />
-      </LoaderContainer>
-    ) : (
-      <WrappedComponent {...props}>{children}</WrappedComponent>
-    );
+    if (loading) {
+      return (
+        <LoaderContainer>
+          <MoonLoader color={"var(--primary-second-color)"} />
+        </LoaderContainer>
+      );
+    }
+
+    return <WrappedComponent {...props}>{children}</WrappedComponent>;
   };
 };

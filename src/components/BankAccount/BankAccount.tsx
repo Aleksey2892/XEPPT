@@ -35,7 +35,7 @@ export function BankAccount() {
     setTimeout(() => setData(cardsDataExampleArr), 1000);
   }, []);
 
-  const isLoading = data.length < 1;
+  const isLoading = data.length < 1 || undefined;
 
   return (
     <div>
