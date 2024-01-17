@@ -15,14 +15,23 @@ import {
 
 interface CommonProps extends cardDataType {}
 
-interface EmptyCard {
+interface EmptyCardType {
   empty: boolean;
 }
 
-type PrepaidCardItem = CommonProps | EmptyCard;
+type PrepaidCardItemType = CommonProps | EmptyCardType;
 
-export const PrepaidCardItem = (props: PrepaidCardItem) => {
-  if ("status" in props) {
+export const PrepaidCardItem = (props: PrepaidCardItemType) => {
+  if ("empty" in props) {
+    return (
+      <EmptyCard>
+        <CircleButton>
+          <Plus />
+        </CircleButton>
+        <p>Order a new card</p>
+      </EmptyCard>
+    );
+  } else {
     const { status, balance, cardNumber } = props as CommonProps;
 
     return (
@@ -45,15 +54,6 @@ export const PrepaidCardItem = (props: PrepaidCardItem) => {
           <Visa />
         </RightSide>
       </Card>
-    );
-  } else {
-    return (
-      <EmptyCard>
-        <CircleButton>
-          <Plus />
-        </CircleButton>
-        <p>Order a new card</p>
-      </EmptyCard>
     );
   }
 };
