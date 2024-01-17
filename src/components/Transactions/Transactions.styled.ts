@@ -5,6 +5,14 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 54px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding-bottom: 32px;
+  }
 `;
 const ButtonsBox = styled.div`
   margin-bottom: 17px;

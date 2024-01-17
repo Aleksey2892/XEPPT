@@ -10,12 +10,12 @@ const LeftSideContainer = styled.div`
 
   @media screen and (min-width: 1024px) {
     flex-shrink: 1;
-    padding: 32px 18px 54px 0;
+    padding: 32px 18px 0 0;
     width: 670px;
   }
 
   @media screen and (min-width: 1920px) {
-    padding: 72px 24px 32px 0;
+    padding: 72px 24px 0 0;
   }
 `;
 
