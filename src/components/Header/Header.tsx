@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { matchPath } from "react-router";
 import { Menu, Logo, Notifications, ArrowDown } from "../../assets/svg";
 import {
   HeaderStyled,
@@ -10,6 +11,8 @@ import {
 } from "./Header.styled";
 
 export function Header() {
+  const nestedHomeLink = !!matchPath(useLocation().pathname, "/home/card");
+
   return (
     <HeaderStyled>
       <button className={"button-menu"} type="button">
@@ -24,7 +27,11 @@ export function Header() {
         <li className={"list-item"}>
           <NavLink
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : "static"
+              isPending
+                ? "pending"
+                : isActive || nestedHomeLink
+                  ? "active"
+                  : "static"
             }
             to={"/"}
           >

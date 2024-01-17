@@ -4,8 +4,8 @@ import { ButtonsBox, Container } from "./Transactions.styled";
 import { ShowMoreBtn } from "./TransactionList/TransactionList.styled";
 
 export function Transactions() {
-  const loc = useLocation();
-  const tabAll = loc.pathname === "/home";
+  const path = useLocation().pathname;
+  const tabAll = path === "/home";
 
   return (
     <Container>

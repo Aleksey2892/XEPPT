@@ -29,6 +29,12 @@ const ButtonsBox = styled.div`
     color: var(--primary-second-color);
     text-decoration: none;
     transition: all 0.25s;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primary-second-color);
+      background-color: var(--secondary-first-color);
+    }
 
     &:not(:last-child) {
       margin-right: 16px;
